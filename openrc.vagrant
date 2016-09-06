@@ -1,0 +1,16 @@
+# Environment vars for jcs cli
+#
+# If you want to modify this file to put in your credentials (of course you
+# want to do that :) ), then create a copy of this file with name openrc:
+#      cp openrc.sample openrc
+# and source that file
+#      source openrc
+
+# Provide your access and secret keys
+#Pramod Key. Required for Cirros image list on staging                                                                              
+export ACCESS_KEY=240f46b6aeaa44b6923f32a59def3615                           
+export SECRET_KEY=2ea21e28ebb74f51bb900fb468201c67                   
+                                                                                                                                    
+export IAM_URL=https://identity.jiocloud.com                                                   
+export VPC_URL=https://network.jiocloud.com                                                               
+export COMPUTE_URL=http://compute.jiocloud.com:8788/
