@@ -27,8 +27,8 @@ import argparse
 import json
 import binascii
 import xmltodict
-from jcsclient import help
-from jcsclient import exception
+import help
+import exception
 from Crypto.PublicKey import RSA
 # Set codes for success and failure of APIs.
 # This can be enhanced to return service specific
