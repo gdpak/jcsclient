@@ -41,6 +41,7 @@ def test_check_flow_logs_admin_all(start_time, end_time, admin_password,
     e_struct_time = time.strptime(end_time, "%d-%m-%Y %H:%M:%S");
 
     t_delta_sec = time.mktime(e_struct_time) - time.mktime(s_struct_time)
+    t_delta_sec_orig = t_delta_sec
 
     if (t_delta_sec < 0 ):
         print "End time should be greater than start time"
@@ -60,7 +61,7 @@ def test_check_flow_logs_admin_all(start_time, end_time, admin_password,
 
     new_start_time = datetime.fromtimestamp(time.mktime(s_struct_time))
     tdelta = timedelta(seconds=step_time_sec)
-    it = 1
+    steps_completed = step_time_sec
     percent_collection = (step_time_sec * 100) / t_delta_sec
     while (t_delta_sec >= step_time_sec):
          new_end_time = new_start_time + tdelta
@@ -75,9 +76,9 @@ def test_check_flow_logs_admin_all(start_time, end_time, admin_password,
          with open(output_file, "a") as text_file:
               text_file.write(resp)
         
+         percent_collection = (steps_completed * 100 )/t_delta_sec_orig
          print "{}% percent completed ".format(int(percent_collection))
-         it = it + 1
-         percent_collection = (it * step_time_sec * 100 )/t_delta_sec 
+         steps_completed = steps_completed + step_time_sec
          new_start_time = new_end_time
          t_delta_sec = t_delta_sec - step_time_sec
 
