@@ -27,7 +27,7 @@ def help_display():
     print "\n"
 
 
-step_time_sec = 60
+step_time_sec = 30
 out_file_def  = "my_vpc_flow_log.txt"
 
 def test_check_flow_logs_admin_all(start_time, end_time, admin_password,
@@ -49,7 +49,7 @@ def test_check_flow_logs_admin_all(start_time, end_time, admin_password,
         return
 
     if (t_delta_sec > 7200) :
-        print "Max time interval for query is 30 Minues. Please try again"
+        print "Max time interval for query is 2 hours. Please try again"
         print "with lesser time interval"
         return
 
